@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+import logging
+from logging.handlers import RotatingFileHandler
+
+def setup_logging(log_filename='log.log', log_maxbytes=4000000, log_filecount=5):
+    logger = logging.getLogger(__name__)
+    logger.setLevel(level=logging.INFO)
+    formatter = logging.Formatter(
+            '%(asctime)s - %(levelname)s - %(message)s',
+            datefmt='%Y-%m-%d %H:%M:%S'
+    )
+    rotating_handler = RotatingFileHandler(filename=log_filename, maxBytes=log_maxbytes, backupCount=log_filecount)
+    rotating_handler.setFormatter(formatter)
+    logger.addHandler(rotating_handler)
+
+    return logger
