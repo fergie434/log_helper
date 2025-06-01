@@ -8,5 +8,5 @@ setup(
     author_email='author@gmail.com',
     description='Simple preconfigured wrapper for logger',
     packages=find_packages(),    
-    install_requires=['logging'],
+    install_requires=[],
 )
