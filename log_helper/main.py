@@ -3,9 +3,14 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 import sys
+from pathlib import Path
 
 def setup_logging(log_filename='log.log', log_maxbytes=4000000, log_filecount=5, log_directory='logs'):
-    log_filename = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), log_directory, log_filename)
+    log_filepath = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), log_directory)
+    log_filename = os.path.join(log_filepath, log_filename)
+
+    Path(log_filepath).mkdir(exist_ok=True)
+
     logger = logging.getLogger(__name__)
     logger.setLevel(level=logging.INFO)
     formatter = logging.Formatter(
