@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='log_helper',
-    version='1.0.4',
+    version='1.0.5',
     url='https://github.com/fergie434/log_helper.git',
     author='Simon Ferguson',
     author_email='author@gmail.com',
